@@ -29,7 +29,7 @@ abstract class Agent
     {
     }
 
-    public function publishMcpConfig(string $targetPath, string $command): void
+    public function publishMcpConfig(string $targetPath, array $command): void
     {
     }
 

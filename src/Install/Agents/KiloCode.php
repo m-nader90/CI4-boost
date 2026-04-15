@@ -74,7 +74,7 @@ class KiloCode extends Agent
         write_file($filepath, $content);
     }
 
-    public function publishMcpConfig(string $targetPath, string $command): void
+    public function publishMcpConfig(string $targetPath, array $command): void
     {
         helper('filesystem');
 

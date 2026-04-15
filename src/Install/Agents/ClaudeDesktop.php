@@ -26,7 +26,7 @@ class ClaudeDesktop extends Agent
         return true;
     }
 
-    public function publishMcpConfig(string $targetPath, string $command): void
+    public function publishMcpConfig(string $targetPath, array $command): void
     {
         $configDir = getenv('APPDATA') !== false
             ? getenv('APPDATA') . '/Claude'
