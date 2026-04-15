@@ -164,7 +164,7 @@ class BoostInstall extends BaseCommand
         CLI::write('  Claude Code:    claude mcp add -s local -t stdio ci4-boost php spark boost:mcp', 'white');
         CLI::write('  Cursor:         Open command palette > /open MCP Settings > toggle ci4-boost', 'white');
         CLI::write('  Claude Desktop: claude mcp add -s project -t stdio ci4-boost php spark boost:mcp', 'white');
-        CLI::write('  Kilo Code:      MCP config auto-generated in .kilo/kilomcp.json', 'white');
+        CLI::write('  Kilo Code:      MCP config auto-generated in .kilo/kilo.json', 'white');
         CLI::write('  VS Code:        Open command palette > MCP Settings > check ci4-boost', 'white');
         CLI::newLine();
 
