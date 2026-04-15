@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace CodeIgniter\Boost\Install\Agents;
 
+use function CodeIgniter\Boost\boost_resource_path;
+
 class ClaudeCode extends Agent
 {
     public function name(): string
