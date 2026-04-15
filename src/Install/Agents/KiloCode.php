@@ -84,13 +84,14 @@ class KiloCode extends Agent
             mkdir($kiloDir, 0755, true);
         }
 
-        $configFile = $kiloDir . '/kilomcp.json';
+        $configFile = $kiloDir . '/kilo.json';
 
         $config = [
-            'mcpServers' => [
+            'mcp' => [
                 'ci4-boost' => [
-                    'command' => $command[0],
-                    'args' => array_slice($command, 1),
+                    'type' => 'local',
+                    'command' => $command,
+                    'enabled' => true,
                 ],
             ],
         ];
