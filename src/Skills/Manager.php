@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodeIgniter\Boost\Skills;
 
 use CodeIgniter\Boost\Config\Boost as BoostConfig;
+use function CodeIgniter\Boost\boost_resource_path;
 
 class Manager
 {
