@@ -17,6 +17,12 @@ class BoostInstall extends BaseCommand
 
     protected $description = 'Install CI4 Boost AI guidelines, skills, and MCP configuration.';
 
+    protected $usage = 'boost:install [options]';
+
+    protected $options = [
+        '--agent' => 'Agent to configure (kilo, claude-code, cursor, claude-desktop, vscode)',
+    ];
+
     public function run(array $params)
     {
         CLI::write('CI4 Boost Installer', 'cyan');
@@ -33,30 +39,62 @@ class BoostInstall extends BaseCommand
             $agentChoices[$name] = $class;
         }
 
-        CLI::write('Select the AI agents you want to configure:', 'yellow');
-        CLI::newLine();
+        $selectedAgents = [];
+        $agentOption = $params['agent'] ?? null;
 
-        $availableAgents = [];
-        $index = 1;
+        if ($agentOption !== null) {
+            $agentOption = strtolower(trim($agentOption));
+            $agentMap = [
+                'kilo' => 'kilo-code',
+                'kilocode' => 'kilo-code',
+                'kilo-code' => 'kilo-code',
+                'claude-code' => 'claude-code',
+                'claudecode' => 'claude-code',
+                'claude' => 'claude-code',
+                'cursor' => 'cursor',
+                'claude-desktop' => 'claude-desktop',
+                'claudedesktop' => 'claude-desktop',
+                'vscode' => 'vscode-copilot',
+                'copilot' => 'vscode-copilot',
+                'github-copilot' => 'vscode-copilot',
+            ];
 
-        foreach ($agentChoices as $name => $class) {
-            $agent = new $class($config);
-            $availableAgents[$index] = $name;
-            CLI::write("  [{$index}] {$agent->label()} - {$agent->description()}");
-            $index++;
+            if (isset($agentMap[$agentOption])) {
+                $selectedAgents[] = $agentMap[$agentOption];
+            } elseif (isset($agentChoices[$agentOption])) {
+                $selectedAgents[] = $agentOption;
+            } else {
+                CLI::error("Unknown agent: {$agentOption}");
+                CLI::write('Available agents: ' . implode(', ', array_keys($agentChoices)), 'yellow');
+                return;
+            }
         }
 
-        CLI::newLine();
-        $selection = CLI::prompt('Enter agent numbers (comma-separated, e.g., 1,2,3)', '1');
+        if (empty($selectedAgents)) {
+            CLI::write('Select the AI agents you want to configure:', 'yellow');
+            CLI::newLine();
 
-        $selectedIndexes = array_map('trim', explode(',', $selection));
-        $selectedAgents = [];
+            $availableAgents = [];
+            $index = 1;
 
-        foreach ($selectedIndexes as $idx) {
-            $idx = (int) $idx;
+            foreach ($agentChoices as $name => $class) {
+                $agent = new $class($config);
+                $availableAgents[$index] = $name;
+                CLI::write("  [{$index}] {$agent->label()} - {$agent->description()}");
+                $index++;
+            }
 
-            if (isset($availableAgents[$idx])) {
-                $selectedAgents[] = $availableAgents[$idx];
+            CLI::newLine();
+            $selection = CLI::prompt('Enter agent numbers (comma-separated, e.g., 1,2,3)', '1');
+
+            $selectedIndexes = array_map('trim', explode(',', $selection));
+
+            foreach ($selectedIndexes as $idx) {
+                $idx = (int) $idx;
+
+                if (isset($availableAgents[$idx])) {
+                    $selectedAgents[] = $availableAgents[$idx];
+                }
             }
         }
 
