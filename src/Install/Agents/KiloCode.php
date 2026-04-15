@@ -219,6 +219,10 @@ CMD;
         }
 
         $agentMd = <<<'AGENT'
+---
+description: CodeIgniter 4 development agent with AI-boosted productivity
+mode: primary
+---
 When working with this CodeIgniter 4 application:
 
 1. Always follow CI4 conventions - controllers in `app/Controllers`, models in `app/Models`, views in `app/Views`
