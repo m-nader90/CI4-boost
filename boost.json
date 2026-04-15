@@ -1,0 +1,43 @@
+{
+    "$schema": "https://json.schemastore.org/boost",
+    "version": "1.0.0",
+    "agents": {
+        "claude-code": {
+            "guidelines": true,
+            "skills": true,
+            "mcp": true
+        },
+        "cursor": {
+            "guidelines": true,
+            "skills": true,
+            "mcp": true
+        },
+        "claude-desktop": {
+            "guidelines": false,
+            "skills": false,
+            "mcp": true
+        },
+        "vscode-copilot": {
+            "guidelines": true,
+            "skills": false,
+            "mcp": true
+        },
+        "kilo-code": {
+            "guidelines": true,
+            "skills": true,
+            "mcp": true,
+            "commands": [
+                "boost-update",
+                "boost-install",
+                "ci-migrate",
+                "ci-seeder"
+            ],
+            "output": {
+                "agents_md": "AGENTS.md",
+                "mcp_config": ".kilo/kilomcp.json",
+                "commands_dir": ".kilo/command",
+                "agent_dir": ".kilo/agent"
+            }
+        }
+    }
+}

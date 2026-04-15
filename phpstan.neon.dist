@@ -1,0 +1,13 @@
+parameters:
+    level: max
+    paths:
+        - src
+    bootstrapFiles:
+        - vendor/codeigniter4/framework/system/Test/bootstrap.php
+    ignoreErrors:
+        - '#Call to an undefined method#'
+        - '#Undefined constant#'
+        - '#Undefined variable#'
+        - '#Property .+ does not exist#'
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false

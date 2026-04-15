@@ -1,0 +1,9 @@
+*.text eol=lf
+*.php eol=lf
+*.json eol=lf
+*.md eol=lf
+*.yml eol=lf
+*.xml eol=lf
+/.gitattributes export-ignore
+/tests export-ignore
+/art export-ignore
