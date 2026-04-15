@@ -40,7 +40,7 @@
         }
     },
     "extra": {
-        "ci4-boost": {
+        "codeigniter4": {
             "commands": [
                 "CodeIgniter\\Boost\\Commands\\BoostInstall",
                 "CodeIgniter\\Boost\\Commands\\BoostUpdate",
