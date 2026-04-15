@@ -1,5 +1,5 @@
 {
-    "name": "codeigniter4/boost",
+    "name": "m-nader90/ci4-boost",
     "description": "CodeIgniter 4 Boost accelerates AI-assisted development by providing the essential context and structure that AI needs to generate high-quality, CI4-specific code.",
     "type": "library",
     "keywords": [
@@ -10,11 +10,11 @@
         "mcp",
         "boost"
     ],
-    "homepage": "https://github.com/codeigniter4/boost",
+    "homepage": "https://github.com/m-nader90/CI4-boost",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/codeigniter4/boost/issues",
-        "source": "https://github.com/codeigniter4/boost"
+        "issues": "https://github.com/m-nader90/CI4-boost/issues",
+        "source": "https://github.com/m-nader90/CI4-boost"
     },
     "require": {
         "php": "^8.1",
